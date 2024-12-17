@@ -2,7 +2,7 @@
 import express from "express";
 import { Router } from "express";
 const carritoRouter = Router();
-import fs from "node:fs/promises"
+import fs from "fs/promises"
 import { json } from "node:stream/consumers";
 
 class cartManager {
@@ -61,12 +61,12 @@ await this.guardaDato(arrayCarritos);
             const arrayCarritos = JSON.parse(respuesta);
             return arrayCarritos;
         }catch (error) {
-            console.log("Error al leer el archivo");
+            console.log(`${error}, al leer el archivo`);
         }
     }
 }
 
-const cmanagerAdentro = new cartManager("/src/DATA/carrito.json");
+const cmanagerAdentro = new cartManager("./src/DATA/cart.json");
 
 carritoRouter.post("/", async (requestAnimationFrame, res) => {
     await cmanagerAdentro.addCart();

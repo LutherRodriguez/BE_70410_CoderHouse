@@ -62,7 +62,7 @@ class productManager {
         try {
             await fs.writeFile(this.path, JSON.stringify(arrayProductos, null, 2))
         }catch (error) {
-            console.log("Error, no se pudo guardar el archivo");
+            console.log(`${error}, no se pudo guardar el archivo`);
         }
     }
 
@@ -72,14 +72,14 @@ class productManager {
             const arrayProductos = JSON.parse(respuesta);
             return arrayProductos;
         } catch (error){
-            console.log("Error, no se puede leer el archivo");
+            console.log(`${error}, no se puede leer el archivo`);
 
         }
     }
 
 }
 
-const pmanagerAdentro = new productManager("./src/DATA/product.json");
+const pmanagerAdentro = new productManager("./src/DATA/products.json");
 
 productoRouter.get("/", async (req, res) => {
     const products = await pmanagerAdentro.getProducts();
