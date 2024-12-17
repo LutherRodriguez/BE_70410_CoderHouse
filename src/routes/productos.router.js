@@ -3,7 +3,7 @@ import express from "express";
 import { Router } from "express";
 import { error } from "node:console";
 const productoRouter = Router();
-import fs from "node:fs/promises"
+import fs from "fs/promises"
 import { json } from "node:stream/consumers";
 
 
@@ -79,12 +79,11 @@ class productManager {
 
 }
 
-const pmanagerAdentro = new productManager("/src/DATA/product.json");
+const pmanagerAdentro = new productManager("./src/DATA/product.json");
 
 productoRouter.get("/", async (req, res) => {
     const products = await pmanagerAdentro.getProducts();
     res.json(products)
-    res.send(products)
 });
 
 productoRouter.get("/:pid", async (req, res) => {
