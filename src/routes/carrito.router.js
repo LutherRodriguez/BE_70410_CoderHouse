@@ -51,7 +51,7 @@ await this.guardaDato(arrayCarritos);
         try {
             await fs.writeFile(this.path, JSON.stringify(arrayCarritos, null, 2))
         }catch (error){
-            console.log("Error al guardar el archivo");
+            console.log(`${Error}, al guardar el archivo`);
         }
     }
 
@@ -66,7 +66,7 @@ await this.guardaDato(arrayCarritos);
     }
 }
 
-const cmanagerAdentro = new cartManager("./src/DATA/cart.json");
+const cmanagerAdentro = new cartManager("./src/data/cart.json");
 
 carritoRouter.post("/", async (requestAnimationFrame, res) => {
     await cmanagerAdentro.addCart();

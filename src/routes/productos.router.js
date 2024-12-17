@@ -10,7 +10,7 @@ import { json } from "node:stream/consumers";
 class productManager {
     static ultimoID = 0;
     constructor(path) {
-        this.products =[];
+        this.products = [];
         this.path = path;
     }
 
@@ -30,7 +30,7 @@ class productManager {
         const nuevoProducto = {
             id: ++productManager.ultimoID,
             title,
-            descrption,
+            description,
             code,
             price,
             status,
@@ -76,11 +76,9 @@ class productManager {
 
         }
     }
-
 }
 
-const pmanagerAdentro = new productManager("./src/DATA/products.json");
-
+const pmanagerAdentro = new productManager("./src/data/products.json");
 productoRouter.get("/", async (req, res) => {
     const products = await pmanagerAdentro.getProducts();
     res.json(products)
