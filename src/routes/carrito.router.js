@@ -18,8 +18,8 @@ class cartManager {
             id: ++cartManager.ultimoID,
             products: []
         }
-arrayCarritos.push(nuevoCarrito);
-await this.guardaDato(arrayCarritos);
+    arrayCarritos.push(nuevoCarrito);
+    await this.guardaDato(arrayCarritos);
     }
 
     async getCartByID(id) {
@@ -42,8 +42,8 @@ await this.guardaDato(arrayCarritos);
                 product: productID,
                 quantity: 1
             }
-carrito.products.push(producto);
-await this.guardaDato(arrayCarritos);
+    carrito.products.push(producto);
+    await this.guardaDato(arrayCarritos);
         }
     }
 
