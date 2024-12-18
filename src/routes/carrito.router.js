@@ -68,13 +68,13 @@ class cartManager {
 
 const cmanagerAdentro = new cartManager("./src/data/cart.json");
 
-carritoRouter.post("/", async (requestAnimationFrame, res) => {
+carritoRouter.post("/", async (req, res) => {
     await cmanagerAdentro.addCart();
     res.json({mensaje: "Carrito agregado"});
 });
 
-carritoRouter.get("/:cid", async (requestAnimationFrame, res) => {
-    const cart = await cmanagerAdentro.getCartByID(requestAnimationFrame.params.cid);
+carritoRouter.get("/:cid", async (req, res) => {
+    const cart = await cmanagerAdentro.getCartByID(req.params.cid);
     if (cart === "No funciona") {
         res.status(404).json({ error: "Carrito no encontrado"});
     } else {
