@@ -73,12 +73,13 @@ class productManager {
             return arrayProductos;
         } catch (error){
             console.log(`${error}, no se puede leer el archivo`);
+            return[]
 
         }
     }
 }
 
-const pmanagerAdentro = new productManager("./src/data/products.json");
+const pmanagerAdentro = new productManager("./src/data/productos.json");
 productoRouter.get("/", async (req, res) => {
     const products = await pmanagerAdentro.getProducts();
     res.json(products)
@@ -99,7 +100,7 @@ productoRouter.post("/", async (req, res) => {
     res.json({mensaje: "Producto agregado"});
 });
 
-productoRouter.put("/pid", async (req, res) => {
+productoRouter.put("/:pid", async (req, res) => {
     const product = await pmanagerAdentro.getProductByID(req.params.id);
     if (product === "ID inexistente") {
         res.status(404).json({error: "Producto no encontrado"});

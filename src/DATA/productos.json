@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "Pantalon",
+    "description": "Largo de mujer",
+    "code": "022024",
+    "price": 5000,
+    "status": true,
+    "stock": 5,
+    "category": "Casual",
+    "thumbnails": [
+      "Sin img"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Pantalon",
+    "description": "Largo de mujer",
+    "code": "012024",
+    "price": 5000,
+    "status": true,
+    "stock": 5,
+    "category": "Casual",
+    "thumbnails": [
+      "Sin img"
+    ]
+  }
+]
