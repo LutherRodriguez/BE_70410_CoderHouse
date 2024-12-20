@@ -25,6 +25,9 @@ class cartManager {
     async getCartByID(id) {
         const arrayCarritos = await this.leerArchivo();
         const carrito = arrayCarritos.find(item => item.id === id);
+        console.log(id);
+        console.log(carrito);
+        console.log(arrayCarritos); 
         if (!carrito) {
             return "No funciona";
         }else {
@@ -65,6 +68,7 @@ class cartManager {
             return arrayCarritos;
         }catch (error) {
             console.log(`${error},: al leer el archivo`);
+            return [];
         }
     }
 }
@@ -77,7 +81,7 @@ carritoRouter.post("/", async (req, res) => {
 });
 
 carritoRouter.get("/:cid", async (req, res) => {
-    const cart = await cmanagerAdentro.getCartByID(req.params.cid);
+    const cart = await cmanagerAdentro.getCartByID(parseInt(req.params.cid));
     if (cart === "No funciona") {
         res.status(404).json({ error: "Carrito no encontrado"});
     } else {

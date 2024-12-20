@@ -24,5 +24,18 @@
     "thumbnails": [
       "Sin img"
     ]
+  },
+  {
+    "id": 3,
+    "title": "Pantalon",
+    "description": "Corto de mujer",
+    "code": "032024",
+    "price": 4000,
+    "status": true,
+    "stock": 10,
+    "category": "Casual",
+    "thumbnails": [
+      "Sin img"
+    ]
   }
 ]

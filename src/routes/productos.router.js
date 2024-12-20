@@ -51,6 +51,7 @@ class productManager {
     async getProductByID(id) {
         const arrayProductos = await this.leerArchivo();
         const producto = arrayProductos.find(item => item.id === id);
+        console.log(producto);
         if(!producto) {
             return "ID inexistente";
         }else{
@@ -86,7 +87,7 @@ productoRouter.get("/", async (req, res) => {
 });
 
 productoRouter.get("/:pid", async (req, res) => {
-    const product = await pmanagerAdentro.getProductByID(req.params.pid);
+    const product = await pmanagerAdentro.getProductByID(parseInt(req.params.pid));
     if(product === "ID inexistente") {
         res.status(404).json({ error: "Producto no encontrado"});
     }else {
