@@ -37,5 +37,18 @@
     "thumbnails": [
       "Sin img"
     ]
+  },
+  {
+    "id": 1,
+    "title": "Camisa",
+    "description": "Manga larga",
+    "code": "012025",
+    "price": 2000,
+    "status": true,
+    "stock": 15,
+    "category": "Clásico",
+    "thumbnails": [
+      "Sin img"
+    ]
   }
 ]

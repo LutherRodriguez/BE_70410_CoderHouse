@@ -83,7 +83,7 @@ class productManager {
 const pmanagerAdentro = new productManager("./src/data/productos.json");
 productoRouter.get("/", async (req, res) => {
     const products = await pmanagerAdentro.getProducts();
-    res.json(products)
+    res.json(products);
 });
 
 productoRouter.get("/:pid", async (req, res) => {
@@ -102,7 +102,7 @@ productoRouter.post("/", async (req, res) => {
 });
 
 productoRouter.put("/:pid", async (req, res) => {
-    const product = await pmanagerAdentro.getProductByID(req.params.id);
+    const product = await pmanagerAdentro.getProductByID(parseInt(req.params.id));
     if (product === "ID inexistente") {
         res.status(404).json({error: "Producto no encontrado"});
     }else {
@@ -121,7 +121,7 @@ productoRouter.put("/:pid", async (req, res) => {
 });
 
 productoRouter.delete("/:pid", async (req, res) => {
-    const product = await pmanagerAdentro.getProductByID(req.params.pid);
+    const product = await pmanagerAdentro.getProductByID(parseInt(req.params.pid));
     if(product === "ID inexistente") {
         res.status(404).json({ error: "Producto no encontrado"});
     }else {
