@@ -4,8 +4,9 @@ const app = express();
 const PUERTO = 8080;
 import carritoRouter from "./routes/carrito.router.js";
 import productoRouter from "./routes/productos.router.js";
-//import {server} from "socket.io";
-//const io = new server(httpServer);
+import Viewsrouter from "./routes/views.router.js";
+import {server} from "socket.io";
+const io = new server(httpServer);
 
 //Middelware
 app.use(express.json());
@@ -23,17 +24,30 @@ app.use("/api/cart", carritoRouter);
 app.use("/api/products", productoRouter);
 
 
+
 //Escucho el PUERTO
-app.listen(PUERTO, () => {
+/*app.listen(PUERTO, () => {
+    console.log(`Escuchando en el puerto: ${PUERTO}`);
+})*/
+const httpServer = app.listen(PUERTO, () => {
     console.log(`Escuchando en el puerto: ${PUERTO}`);
 })
-/*const httpServer = app.listen(PUERTO, () => {
-    console.log(`Escuchando en el puerto: ${PUERTO}`);
-})
+
+const usuarios = [
+    {id:1, nombre: "Juan", apellido: "Perez"},
+    {id:2, nombre: "Maria", apellido: "Gomez"},
+    {id:3, nombre: "Carlos", apellido: "Lopez"},
+    {id:4, nombre: "Ana", apellido: "Martinez"},
+    {id:5, nombre: "Pedro", apellido: "Gimenez"},
+]
 
 io.on("connection", (socket) => {
     console.log("Usuario conectado");
     socket.on("mensaje", (data) => {
         console.log(data);
     })
-})*/
+
+    socket.emit("saludo", "Hola Front")
+
+    socket.emit("usuarios", usuarios);
+})
