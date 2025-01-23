@@ -4,9 +4,8 @@ const app = express();
 const PUERTO = 8080;
 import carritoRouter from "./routes/carrito.router.js";
 import productoRouter from "./routes/productos.router.js";
-import Viewsrouter from "./routes/views.router.js";
-import {server} from "socket.io";
-const io = new server(httpServer);
+import Viewsrouter from "./routes/views.routers.js";
+import {Server} from "socket.io";
 
 //Middelware
 app.use(express.json());
@@ -32,6 +31,8 @@ app.use("/api/products", productoRouter);
 const httpServer = app.listen(PUERTO, () => {
     console.log(`Escuchando en el puerto: ${PUERTO}`);
 })
+
+const io = new Server(httpServer);
 
 const usuarios = [
     {id:1, nombre: "Juan", apellido: "Perez"},
