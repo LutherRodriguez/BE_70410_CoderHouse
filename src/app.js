@@ -21,6 +21,7 @@ app.set("views", "./src/views");
 //RUTAS
 app.use("/api/cart", carritoRouter);
 app.use("/api/products", productoRouter);
+app.use("/", Viewsrouter);
 
 
 
