@@ -35,6 +35,9 @@ const httpServer = app.listen(PUERTO, () => {
 
 const io = new Server(httpServer);
 
+//Creo un array para guardar los mensajes enviados por los usuarios
+const mensajes = [];
+
 const usuarios = [
     {id:1, nombre: "Juan", apellido: "Perez"},
     {id:2, nombre: "Maria", apellido: "Gomez"},
@@ -46,10 +49,13 @@ const usuarios = [
 io.on("connection", (socket) => {
     console.log("Usuario conectado");
     socket.on("mensaje", (data) => {
+        mensajes.push(data);
+         io.emit("messagesLogs", mensajes);
         console.log(data);
     })
 
     socket.emit("saludo", "Hola Front")
 
+    //Enviando el array de ususarios
     socket.emit("usuarios", usuarios);
 })

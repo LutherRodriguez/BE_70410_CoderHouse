@@ -5,6 +5,7 @@ Viewsrouter.get("/", (req, res) => {
     res.render("index");
 });
 
+//Se importa el producto manager y se crea una instancia para poder usar los métodos
 Viewsrouter.get("/", async (req, res) => {
     try {
         const products = await pmanagerAdentro.getProducts();
@@ -16,3 +17,4 @@ Viewsrouter.get("/", async (req, res) => {
 });
 
 export default Viewsrouter;
+

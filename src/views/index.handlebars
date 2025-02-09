@@ -3,5 +3,21 @@
 <h2>Lista Usuarios</h2>
 <ul id="lista-usuarios"></ul>
 
+{{!--armo un chatBox--}}
+<div>
+    <input type="text" id="chatBox">
+</div>
+
+<div>
+    <p id="messagesLogs"></p>
+</div>
+
+
+{{!--Instalo sweetalert para las alertas--}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{{!--Instalo socket.io--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js"></script>
+
+{{!--Instalo siempre de último la referencia a mi archivo main.js para que funcione socket--}}
 <script src="JS/main.js"></script>
