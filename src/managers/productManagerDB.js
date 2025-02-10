@@ -9,8 +9,10 @@ class ProductManager {
                 console.log("Campos incompletos")
                 return;
              }
-    
-            if(arrayProductos.some(item => item.code === code)) {
+             
+            const existeProducto = await productModel.findOne({code: code});
+
+            if(existeProducto) {
                 console.log("El código debe ser único");
                 return;
             }
@@ -22,7 +24,8 @@ class ProductManager {
                 price,
                 img,
                 stock,
-                category: true,
+                category,
+                status: true,
                 thumbnails: thumbnails || []
             });
     
@@ -33,7 +36,7 @@ class ProductManager {
         }
     }
 
-    async getProducts({limit = 10, page= 1, query}= {}) {
+    async getProducts({limit = 10, page= 1, sort, query}= {}) {
         try {
             const skip = (page - 1) * limit;
             let queryOptions = {};
