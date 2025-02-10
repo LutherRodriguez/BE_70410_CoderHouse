@@ -1,11 +1,11 @@
 import express from "express";
-import productManager from "../managers/productManagerDB.js";
+import ProductManager from "../managers/productManagerDB.js";
 
 const productoRouter = express.Router();
-const productManager = new ProductManager();
+const productManager = new ProductManager(); 
 
 // Traer todos los productos:
-router.get("/", async (req, res) => {
+productoRouter.get("/", async (req, res) => {
     try {
         const { limit = 10, page = 1, sort, query } = req.query;
 
@@ -39,7 +39,7 @@ router.get("/", async (req, res) => {
 });
 
 //Traer producto por ID:
-router.get("/:pid", async (req, res) => {
+productoRouter.get("/:pid", async (req, res) => {
     const id = req.params.pid;
 
     try {
@@ -60,7 +60,7 @@ router.get("/:pid", async (req, res) => {
 });
 
 //Agregar producto:
-router.post("/", async (req, res) => {
+productoRouter.post("/", async (req, res) => {
     const nuevoProducto = req.body;
 
     try {
@@ -77,7 +77,7 @@ router.post("/", async (req, res) => {
 });
 
 //Actualizar por ID
-router.put("/:pid", async (req, res) => {
+productoRouter.put("/:pid", async (req, res) => {
     const id = req.params.pid;
     const productoActualizado = req.body;
 
@@ -95,7 +95,7 @@ router.put("/:pid", async (req, res) => {
 });
 
 //Eliminar por ID
-router.delete("/:pid", async (req, res) => {
+productoRouter.delete("/:pid", async (req, res) => {
     const id = req.params.pid;
 
     try {

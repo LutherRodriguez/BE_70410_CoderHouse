@@ -1,6 +1,6 @@
 import productModel from "../models/productModels.js";
 
-class productManager {
+class ProductManager {
    
     async addProduct({title, description, code, price, img, stock, category, thumbnails}) {
         try {
@@ -42,10 +42,8 @@ class productManager {
             }
         
             const sortOptions = {};
-            if (sort) {
-                if  (sort === "asc" || sort === "desc") {
-                    sortOptions.price = sort === "asc" ? 1 : -1;
-                }
+            if (sort === "asc" || sort === "desc") {
+                sortOptions.price = sort === "asc" ? 1 : -1;
             }
 
             const productos = await productModel
@@ -128,4 +126,4 @@ class productManager {
     }
 }
 
-export default productManager;
+export default ProductManager;

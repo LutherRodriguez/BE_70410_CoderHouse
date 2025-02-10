@@ -1,6 +1,6 @@
 import cartModel from "../models/cartModels.js";
 
-class cartManager {
+class CartManager {
     async crearCarrito() {
         try {
             const nuevoCarrito = new cartModel({ products: [] });
@@ -134,4 +134,4 @@ class cartManager {
     }
 }
 
-export default cartManager;
+export default CartManager;

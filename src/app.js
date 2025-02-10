@@ -29,5 +29,5 @@ const httpServer = app.listen(PUERTO, () => {
     console.log(`Escuchando en el puerto: ${PUERTO}`);
 })
 
-const io = new Server(httpServer);
+//const io = new Server(httpServer);
 

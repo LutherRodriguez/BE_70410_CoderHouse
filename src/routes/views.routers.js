@@ -1,12 +1,12 @@
 import express from "express";
-import ProductManager from "../managers/product-manager-db.js";
-import CartManager from "../managers/cart-manager-db.js";
+import ProductManager from "../managers/productManagerDB.js";
+import CartManager from "../managers/cartManagerDB.js";
 
 const viewsRouter = express.Router();
-const productManager = new productManager();
-const cartManager = new cartManager();
+const productManager = new ProductManager();
+const cartManager = new CartManager();
 
-router.get("/products", async (req, res) => {
+viewsRouter.get("/products", async (req, res) => {
    try {
       const { page = 1, limit = 2 } = req.query;
       const productos = await productManager.getProducts({
@@ -38,7 +38,7 @@ router.get("/products", async (req, res) => {
    }
 });
 
-router.get("/carts/:cid", async (req, res) => {
+viewsRouter.get("/carts/:cid", async (req, res) => {
    const cartId = req.params.cid;
 
    try {
