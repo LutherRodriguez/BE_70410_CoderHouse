@@ -1,5 +1,5 @@
 //Instancio el socket
-const socket = io();
+/*const socket = io();
 
 let user;
 
@@ -41,9 +41,10 @@ socket.on("messagesLogs", (data) => {
     });
     chat.innerHTML = mensajes;
 });
+*/
 
 //Envio un mensaje al back
-socket.emit("mensaje", "Hola mundo desde el front, que tal");
+/*socket.emit("mensaje", "Hola mundo desde el front, que tal");
 
 socket.on("saludo", (data) => {
     console.log(data);
@@ -57,4 +58,4 @@ socket.on("usuarios", (data) => {
        
     });
 })
-
+*/
